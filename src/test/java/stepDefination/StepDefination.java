@@ -7,11 +7,13 @@ import io.cucumber.java.en.When;
 import utilities.DriverFactory;
 import pages.CreateAccount;
 import pages.LoginPage;
+import pages.PasswordPage;
 
 public class StepDefination {
 	
 	LoginPage loginPage=new LoginPage(DriverFactory.driver);
 	CreateAccount createaccount=new CreateAccount(DriverFactory.driver);
+	PasswordPage passwordPage=new PasswordPage(DriverFactory.driver);
 	
 	@Given("user launches shopwithEg")
 	public void user_launches_shopwith_eg() {
@@ -69,5 +71,39 @@ public class StepDefination {
 	}
 
 
+	@Given("user launches the url shopwithEg")
+	public void user_launches_the_url_shopwith_eg() {
+		DriverFactory.driver.get("https://stg.shopwitheg.com/");
+	}
+	@When("user click on login button")
+	public void user_click_on_login_button() {
+		loginPage.clickloginbutton();
+	}
+
+	@When("user not enters valid password")
+	public void user_not_enters_valid_password() {
+	    passwordPage.clickpassword();
+	}
+
+@When("user click on sign in button")
+public void user_click_on_sign_in_button() {
+		passwordPage.clicksignin();
+    
+}
+
+@Then("shows error message")
+public void shows_error_message1() {
+   passwordPage.enterinvalidpassword();
+}
+
+@When("user not enter special charecters,numeric values,uppercase and lower case letters")
+public void user_not_enter_special_charecters_numeric_values_uppercase_and_lower_case_letters() {
+ 
+}
+
+@Then("validate error message")
+public void validate_error_message() {
+    
+}
 }
 		
