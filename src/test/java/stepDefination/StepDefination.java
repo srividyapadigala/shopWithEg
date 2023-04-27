@@ -21,27 +21,51 @@ public class StepDefination {
 	    DriverFactory.driver.get("https://stg.shopwitheg.com/");
 	    			}
 
-	@When("user clicks on login button")
-	public void user_clicks_on_login_button() {
-		loginPage.clickloginbutton();
-	    
+	@Given("user launches shopwitheg site")
+	public void user_launches_shopwitheg_site() {
+		  
+		DriverFactory.driver.get("https://stg.shopwitheg.com/");
 	}
 
-	@And("user enters valid credentials")
-	public void user_enters_valid_credentials() throws InterruptedException {
-		
-		loginPage.enteremail();
-		loginPage.enterpassword();
-		
+	@When("user clicks login button")
+	public void user_clicks_login_button() {
 	    
+		loginPage.loginbutton();
 	}
 
-	@Then("user is succesfully loggedin")
-	public void user_is_succesfully_loggedin() {
-		
-		
+	@When("user enters invalid credentials")
+	public void user_enters_invalid_credentials() {
+	    loginPage.enteremail();
+	    loginPage.enterpassword();
+	}
+
+	@When("user clicks on signin button in login page")
+	public void user_clicks_on_signin_button_in_login_page() {
+	    loginPage.Clicksigninbutton();
+	}
+
+	@Then("user will be displayed with error message for invalid credentials")
+	public void user_will_be_displayed_with_error_message_for_invalid_credentials() {
+	    loginPage.invalidemailcredentials();
+	    loginPage.invalidpasswordcredentials();
+	}
+
+	@When("user enters blank username and password")
+	public void user_enters_blank_username_and_password() {
+	    loginPage.enterblankemail();
+	    loginPage.enterblankpassword();
+	}
+
+	@Then("user will be displayed with error message for blank username and password")
+	public void user_will_be_displayed_with_error_message_for_blank_username_and_password() {
+	    loginPage.blankemailerror();
+	    loginPage.blankpassworderror();
 	}
 	
+	@When("user clicks on login button")
+	public void user_clicks_on_login_button() {
+	   createaccount.loginbutton();
+	}
 	
 	@When("user clicks on create account button")
 	public void user_clicks_on_create_account_button() {
@@ -69,41 +93,70 @@ public class StepDefination {
 	    createaccount.displayfirstnameerror();
 	    createaccount.displaylastnameerror();
 	}
-
-
-	@Given("user launches the url shopwithEg")
-	public void user_launches_the_url_shopwith_eg() {
-		DriverFactory.driver.get("https://stg.shopwitheg.com/");
-	}
-	@When("user click on login button")
-	public void user_click_on_login_button() {
-		loginPage.clickloginbutton();
+	
+	
+	
+	@Given("user launches shopwitheg")
+	public void user_launches_shopwitheg() {
+	   DriverFactory.driver.get("https://stg.shopwitheg.com/");
 	}
 
-	@When("user not enters valid password")
-	public void user_not_enters_valid_password() {
-	    passwordPage.clickpassword();
+	@When("user enters valid password")
+	public void user_enters_valid_password() {
+	    passwordPage.enterpassword();
 	}
 
-@When("user click on sign in button")
-public void user_click_on_sign_in_button() {
-		passwordPage.clicksignin();
-    
+	@When("user click on signin")
+	public void user_click_on_signin() {
+	    passwordPage.clicksignin();
+	}
+
+	@Then("validate password")
+	public void validate_password() {
+	    passwordPage.validatecorrectpassword();
+	}
+
+	@When("user not enters uppercase")
+	public void user_not_enters_uppercase() {
+	    passwordPage.enteruppercase();
+	}
+
+	@Then("validate uppercase error message")
+	public void validate_uppercase_error_message() {
+	    passwordPage.validateuppercaseerror();
+	}
+
+	@When("user not enters special charecter")
+	public void user_not_enters_special_charecter() {
+	   passwordPage.enterspecialcharecter();
+	}
+
+	@Then("validate special charecter error message")
+	public void validate_special_charecter_error_message() {
+	   passwordPage.validatespecialcaseerror();
+	}
+
+	@When("user not enters numerics")
+	public void user_not_enters_numerics() {
+	    passwordPage.enternumerics();
+	}
+
+	@Then("validate numerics error message")
+	public void validate_numerics_error_message() {
+	    passwordPage.validatenumericserror();
+	}
+
+	@When("user not enter lowercase")
+	public void user_not_enter_lowercase() {
+	    passwordPage.enterlowercase();
+	}
+
+	@Then("validate lowercase error message")
+	public void validate_lowercase_error_message() {
+	    passwordPage.validatelowercaseerror();
+	}
+
+
 }
 
-@Then("shows error message")
-public void shows_error_message1() {
-   passwordPage.enterinvalidpassword();
-}
-
-@When("user not enter special charecters,numeric values,uppercase and lower case letters")
-public void user_not_enter_special_charecters_numeric_values_uppercase_and_lower_case_letters() {
- 
-}
-
-@Then("validate error message")
-public void validate_error_message() {
-    
-}
-}
 		

@@ -1,11 +1,15 @@
 Feature: password functionality
-Scenario: verify password is valid or invalid
-Given user launches the url shopwithEg
-When user click on login button
-When user not enters valid password
-And user click on sign in button
-Then  shows error message
-When user not enter special charecters,numeric values,uppercase and lower case letters 
-And user click on sign in button
-Then validate error message
-
+Scenario: verify user enter valid credentials
+Given user launches shopwitheg
+When user clicks on login button
+When user enters valid password
+And user click on signin
+Then validate password
+When user not enters uppercase 
+Then validate uppercase error message
+When user not enters special charecter
+Then validate special charecter error message
+When user not enters numerics
+Then validate numerics error message
+When user not enter lowercase
+Then validate lowercase error message

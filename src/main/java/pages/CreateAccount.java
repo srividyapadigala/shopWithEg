@@ -18,6 +18,11 @@ public CreateAccount(WebDriver driver) {
 	PageFactory.initElements(driver,this);
 	}
 
+@FindBy(xpath="//p[text()='login']")
+public WebElement loginbutton;
+public void loginbutton() {
+	loginbutton.click();
+}
 
 @FindBy(xpath="//button[text()='Create Account']")
 

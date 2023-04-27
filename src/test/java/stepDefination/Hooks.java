@@ -15,6 +15,6 @@ public class Hooks {
 
 	@After
 	public void afterMethod() {
-		DriverFactory.driver.close();
+		
 	}
 }
