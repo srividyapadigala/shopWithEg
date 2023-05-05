@@ -1,6 +1,6 @@
 package stepDefination;
 
-import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +14,7 @@ public class StepDefination {
 	LoginPage loginPage=new LoginPage(DriverFactory.driver);
 	CreateAccount createaccount=new CreateAccount(DriverFactory.driver);
 	PasswordPage passwordPage=new PasswordPage(DriverFactory.driver);
+
 	
 	@Given("user launches shopwithEg")
 	public void user_launches_shopwith_eg() {
@@ -21,11 +22,6 @@ public class StepDefination {
 	    DriverFactory.driver.get("https://stg.shopwitheg.com/");
 	    			}
 
-	@Given("user launches shopwitheg site")
-	public void user_launches_shopwitheg_site() {
-		  
-		DriverFactory.driver.get("https://stg.shopwitheg.com/");
-	}
 
 	@When("user clicks login button")
 	public void user_clicks_login_button() {
